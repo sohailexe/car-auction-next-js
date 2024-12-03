@@ -5,7 +5,7 @@ import About from "./components/About";
 import Steps from "./components/Steps";
 import Newslatter from "./components/Newslatter";
 // import MySwiper from "./components/MySwiper";
-import Testimonials from "@/app/components/Testimonials";
+import Testimonials from "@/app/components/Tesimonials/Testimonials";
 export default function Home() {
   return (
     <>

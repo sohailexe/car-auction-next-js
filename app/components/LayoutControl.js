@@ -58,11 +58,11 @@ const LayoutControl = ({ setLayoutGrid }) => {
         </div>
       </div>
 
-      <div className="relative transition">
+      <div className="relative transition ">
         <button
           onClick={handleListShow}
           id="dropdownButton"
-          className="min-w-[152px] px-2 py-2 border border-gray-600 rounded-md shadow-sm bg-white text-gray-700 text-sm flex justify-between"
+          className="min-w-[152px] px-2 py-2 border border-gray-600 rounded-md shadow-sm bg-white text-gray-700 text-sm flex justify-between hover:bg-primary hover:text-white focus:bg-primary focus:text-white  hover:border-primary focus:border-primary"
         >
           <span> Select an option </span>
 
