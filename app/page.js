@@ -11,7 +11,7 @@ export default function Home() {
     <>
       <Hero />
       <Container>
-        <CarsList />
+          <CarsList />
       </Container>
       <About />
         <Steps/>
