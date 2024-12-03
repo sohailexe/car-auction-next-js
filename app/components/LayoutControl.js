@@ -1,7 +1,5 @@
 "use client";
 import React, { useEffect } from "react";
-import $ from "jquery";
-import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faList,
@@ -33,9 +31,12 @@ const LayoutControl = ({ setLayoutGrid }) => {
   };
 
   return (
-    <div id="nav" className="flex gap-3 items-start justify-between mb-6">
+    <div
+      id="nav"
+      className="flex gap-3 justify-center  md:justify-between mb-6"
+    >
       {/* <!-- btn-group  --> */}
-      <div>
+      <div className="hidden md:inline-block">
         <div className="inline-flex rounded-md shadow-sm" role="group">
           <button
             id="btn-grid"
@@ -75,7 +76,7 @@ const LayoutControl = ({ setLayoutGrid }) => {
           id="dropdownList"
           className={` ${
             listShow ? "" : "hidden"
-          }  absolute border border-gray-300 rounded-md shadow-2xl bg-white  max-w-96 mt-4 transition  z-10 -translate-x-[50%]`}
+          }  absolute border border-gray-300 rounded-md shadow-2xl bg-white  max-w-96 mt-4 transition  z-10 = `}
         >
           <li
             onClick={handleListShow}

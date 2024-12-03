@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import Table from "./Table";
 const Hero = () => {
   return (
     <section className="min-h-[70vh] relative bg-gradient-to-r from-purple-600 to-blue-600 text-white overflow-hidden">
