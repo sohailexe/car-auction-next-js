@@ -12,23 +12,23 @@ const Navbar = () => {
   return (
     <nav className="p-3 flex  justify-between items-center div-cont">
       {/* <!-- logo first child --> */}
-      <a href="#" id="brand" className="flex gap-2 items-center">
+      <Link href="/" id="brand" className="flex gap-2 items-center">
         <img
           className="object-cover max-h-12"
           src="images/logo.png"
           alt="Logo"
         />
-      </a>
+      </Link>
       {/* <!-- menu 2nd child --> */}
 
-      <div id="navMenu" className="hidden md:flex gap-4">
-        <Link href="#" className="font-medium hover:text-primary">
+      <div id="navMenu" className="hidden md:flex gap-4 md:pr-16">
+        <Link href="gi-bud" className="font-medium hover:text-primary">
           Gi Bud
         </Link>
-        <Link href="#" className="font-medium hover:text-primary">
+        <Link href="selge-bil" className="font-medium hover:text-primary">
           Selge Bil
         </Link>
-        <Link href="#" className="font-medium hover:text-primary">
+        <Link href="vare-biler" className="font-medium hover:text-primary">
           Våre Biler
         </Link>
         <Link href="#" className="font-medium hover:text-primary">
@@ -37,11 +37,6 @@ const Navbar = () => {
       </div>
 
       {/* <!-- Button 3rd child --> */}
-
-      <button className="hidden md:flex gap-1 justify-center items-center border border-gray-400 p-2 px-6 py-2 rounded hover:border-gray-800">
-        <span className="font-medium p-1 font-display">Electron developer</span>
-        <i className="fa-solid fa-arrow-right"></i>
-      </button>
 
       {/* <!-- Btn for mobile_nav --> */}
       <button className=" p-2 md:hidden" onClick={handleMenu}>
@@ -56,13 +51,18 @@ const Navbar = () => {
       >
         {/* <!-- horzental --> */}
         <div id="nav-bar " className="flex justify-between items-center">
-          <a href="#" id="brand" className="flex gap-2 items-center">
+          <Link
+            href="/"
+            id="brand"
+            className="flex gap-2 items-center"
+            onClick={handleMenu}
+          >
             <img
               className="object-cover max-h-12"
               src="images/logo.png"
               alt="Logo"
             />
-          </a>
+          </Link>
           <button className=" p-2 md:hidden" onClick={handleMenu}>
             <FontAwesomeIcon icon={faXmark} className="text-gray-600 h-9" />
           </button>
@@ -70,30 +70,35 @@ const Navbar = () => {
         {/* <!-- verticle --> */}
 
         <div className="mt-3">
-          <a href="#" className="block font-medium p-3 m-3 hover:bg-gray-100">
+          <Link
+            href="gi-bud"
+            className="block font-medium p-3 m-3 hover:bg-gray-100"
+            onClick={handleMenu}
+          >
             Gi Bud
-          </a>
-          <a href="#" className="block font-medium p-3 m-3 hover:bg-gray-100">
+          </Link>
+          <Link
+            href="selge-bil"
+            className="block font-medium p-3 m-3 hover:bg-gray-100"
+            onClick={handleMenu}
+          >
             Selge Bil
-          </a>
-          <a href="#" className="block font-medium p-3 m-3 hover:bg-gray-100">
+          </Link>
+          <Link
+            href="vare-biler"
+            className="block font-medium p-3 m-3 hover:bg-gray-100"
+            onClick={handleMenu}
+          >
             Våre Biler
-          </a>
-          <a href="#" className="block font-medium p-3 m-3 hover:bg-gray-100">
+          </Link>
+          <Link
+            href="#"
+            className="block font-medium p-3 m-3 hover:bg-gray-100"
+            onClick={handleMenu}
+          >
             Auksjonsvilkår
-          </a>
+          </Link>
         </div>
-
-        {/* <!-- div for line --> */}
-        <div className="h-[1px] bg-gray-200"></div>
-
-        {/* <!-- Btn --> */}
-        <button className="flex gap-1 items-center p-2 px-6 mt-6 w-full rounded hover:bg-gray-100">
-          <span className="font-medium p-1 font-display">
-            Electron developer
-          </span>
-          <i className="fa-solid fa-arrow-right"></i>
-        </button>
       </div>
     </nav>
   );

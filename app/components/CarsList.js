@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import LayoutControl from "./LayoutControl";
 import Car from "./Car";
-export const CarsList = () => {
+export const CarsList = ({ isHome }) => {
   const [layoutGrid, setLayoutGrid] = useState(true);
 
   console.log(layoutGrid);
@@ -12,7 +12,7 @@ export const CarsList = () => {
   }, [layoutGrid]);
   return (
     <>
-      <LayoutControl setLayoutGrid={setLayoutGrid} />
+      <LayoutControl isHome={isHome} setLayoutGrid={setLayoutGrid} />
       {/* <!-- Grid --> */}
       <div
         id="card-grid"
@@ -20,11 +20,9 @@ export const CarsList = () => {
           layoutGrid ? "md:grid-cols-2 lg:grid-cols-3" : " "
         }`}
       >
-        <Car/>
-          <Car/>
-          <Car/>
-          <Car/>
-
+        <Car />
+        <Car />
+        <Car />
       </div>
     </>
   );

@@ -8,7 +8,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
-const LayoutControl = ({ setLayoutGrid }) => {
+const LayoutControl = ({ setLayoutGrid, isHome }) => {
   const [isGrid, setisGrid] = useState(true);
   const [listShow, setListShow] = useState(false);
 
@@ -36,27 +36,29 @@ const LayoutControl = ({ setLayoutGrid }) => {
       className="flex gap-3 justify-center  md:justify-between mb-6"
     >
       {/* <!-- btn-group  --> */}
-      <div className="hidden md:inline-block">
-        <div className="inline-flex rounded-md shadow-sm" role="group">
-          <button
-            id="btn-grid"
-            onClick={gridHandle}
-            type="button"
-            className={`${isGrid ? primary : secondry} rounded-s-lg `}
-          >
-            <FontAwesomeIcon icon={faBorderAll} />
-          </button>
+      {!isHome && (
+        <div className="hidden md:inline-block">
+          <div className="inline-flex rounded-md shadow-sm" role="group">
+            <button
+              id="btn-grid"
+              onClick={gridHandle}
+              type="button"
+              className={`${isGrid ? primary : secondry} rounded-s-lg `}
+            >
+              <FontAwesomeIcon icon={faBorderAll} />
+            </button>
 
-          <button
-            onClick={listHandle}
-            id="btn-list"
-            type="button"
-            className={`${isGrid ? secondry : primary} rounded-e-lg`}
-          >
-            <FontAwesomeIcon icon={faList} />
-          </button>
+            <button
+              onClick={listHandle}
+              id="btn-list"
+              type="button"
+              className={`${isGrid ? secondry : primary} rounded-e-lg`}
+            >
+              <FontAwesomeIcon icon={faList} />
+            </button>
+          </div>
         </div>
-      </div>
+      )}
 
       <div className="relative transition ">
         <button

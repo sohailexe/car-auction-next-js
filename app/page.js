@@ -11,13 +11,12 @@ export default function Home() {
     <>
       <Hero />
       <Container>
-          <CarsList />
+        <CarsList isHome={true} />
       </Container>
       <About />
-        <Steps/>
-        <Newslatter />
-
-<Testimonials />
+      <Steps />
+      <Newslatter />
+      <Testimonials />
     </>
   );
 }
