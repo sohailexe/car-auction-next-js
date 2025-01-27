@@ -6,11 +6,14 @@ import Steps from "@/app/components/Steps";
 export default function () {
   return (
     <>
-      <HeaderSecondry
-        img="images/aboutus.jpg"
-        heading="Neque porro "
-        description="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
-      />
+      <HeaderSecondry img="images/aboutus.jpg">
+        <h1 className="bg-primary text-3xl px-3 py-2 font-bold uppercase md:text-4xl lg:text-6xl w-fit">
+          Gi Bud
+        </h1>
+        <h1 className="bg-white text-3xl px-3 py-2 font-semibold  md:text-4xl lg:text-6xl text-black">
+          Okern Bilauksjon
+        </h1>
+      </HeaderSecondry>
 
       <Steps />
       <hr />

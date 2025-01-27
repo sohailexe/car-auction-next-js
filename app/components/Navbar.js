@@ -31,7 +31,7 @@ const Navbar = () => {
         <Link href="vare-biler" className="font-medium hover:text-primary">
           Våre Biler
         </Link>
-        <Link href="#" className="font-medium hover:text-primary">
+        <Link href="auksjonsvilkar" className="font-medium hover:text-primary">
           Auksjonsvilkår
         </Link>
       </div>
@@ -92,7 +92,7 @@ const Navbar = () => {
             Våre Biler
           </Link>
           <Link
-            href="#"
+            href="auksjonsvilkar"
             className="block font-medium p-3 m-3 hover:bg-gray-100"
             onClick={handleMenu}
           >

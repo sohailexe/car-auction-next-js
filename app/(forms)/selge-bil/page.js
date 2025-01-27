@@ -1,13 +1,18 @@
 import { HeaderSecondry } from "../../components/HeaderSecondry";
 import { SelgeBilFom } from "../../components/forms/SelgeBilFom";
+import AuctionProcessWorks from "@/app/components/AuctionProcessWorks";
 export default function () {
   return (
     <>
-      <HeaderSecondry
-        img="images/car-bg/c2.jpg"
-        heading="Auis doem ipsum"
-        description="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
-      />
+      <HeaderSecondry img="images/car-bg/c2.jpg">
+        <h1 className="bg-primary text-3xl px-3 py-2 font-bold uppercase md:text-4xl lg:text-6xl w-fit">
+          Selge Bill
+        </h1>
+        <h1 className="bg-white text-3xl px-3 py-2 font-semibold  md:text-4xl lg:text-6xl text-black">
+          Okern Bilauksjon
+        </h1>
+      </HeaderSecondry>
+      <AuctionProcessWorks />
 
       <section className=" body-font bg-white">
         <div
