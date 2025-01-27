@@ -1,106 +1,198 @@
 "use client";
-
 import Link from "next/link";
+import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+
 const Navbar = () => {
-  const [toggle, setToggle] = useState(true);
-  const handleMenu = () => {
-    setToggle((previousState) => !previousState);
-  };
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
-    <nav className="p-3 flex  justify-between items-center div-cont">
-      {/* <!-- logo first child --> */}
-      <Link href="/" id="brand" className="flex gap-2 items-center">
-        <img
-          className="object-cover max-h-12"
-          src="images/logo.png"
-          alt="Logo"
-        />
-      </Link>
-      {/* <!-- menu 2nd child --> */}
-
-      <div id="navMenu" className="hidden md:flex gap-4 md:pr-16">
-        <Link href="gi-bud" className="font-medium hover:text-primary">
-          Gi Bud
-        </Link>
-        <Link href="selge-bil" className="font-medium hover:text-primary">
-          Selge Bil
-        </Link>
-        <Link href="vare-biler" className="font-medium hover:text-primary">
-          Våre Biler
-        </Link>
-        <Link href="auksjonsvilkar" className="font-medium hover:text-primary">
-          Auksjonsvilkår
-        </Link>
-      </div>
-
-      {/* <!-- Button 3rd child --> */}
-
-      {/* <!-- Btn for mobile_nav --> */}
-      <button className=" p-2 md:hidden" onClick={handleMenu}>
-        <FontAwesomeIcon icon={faBars} className="text-gray-600 h-6" />
-      </button>
-
-      <div
-        id="nav-dilag"
-        className={`${
-          toggle ? "hidden" : ""
-        } p-3 bg-white fixed z-20 inset-0 md:hidden`}
-      >
-        {/* <!-- horzental --> */}
-        <div id="nav-bar " className="flex justify-between items-center">
-          <Link
-            href="/"
-            id="brand"
-            className="flex gap-2 items-center"
-            onClick={handleMenu}
-          >
-            <img
-              className="object-cover max-h-12"
-              src="images/logo.png"
-              alt="Logo"
-            />
-          </Link>
-          <button className=" p-2 md:hidden" onClick={handleMenu}>
-            <FontAwesomeIcon icon={faXmark} className="text-gray-600 h-9" />
-          </button>
-        </div>
-        {/* <!-- verticle --> */}
-
-        <div className="mt-3">
-          <Link
-            href="gi-bud"
-            className="block font-medium p-3 m-3 hover:bg-gray-100"
-            onClick={handleMenu}
-          >
-            Gi Bud
-          </Link>
-          <Link
-            href="selge-bil"
-            className="block font-medium p-3 m-3 hover:bg-gray-100"
-            onClick={handleMenu}
-          >
-            Selge Bil
-          </Link>
-          <Link
-            href="vare-biler"
-            className="block font-medium p-3 m-3 hover:bg-gray-100"
-            onClick={handleMenu}
-          >
-            Våre Biler
-          </Link>
-          <Link
-            href="auksjonsvilkar"
-            className="block font-medium p-3 m-3 hover:bg-gray-100"
-            onClick={handleMenu}
-          >
-            Auksjonsvilkår
-          </Link>
+    <header className="relative z-50">
+      {/* Top Bar */}
+      <div className="hidden md:block bg-gray-900 text-white py-2.5">
+        <div className="max-w-7xl mx-auto px-6 md:px-8">
+          <div className="flex justify-between items-center gap-4">
+            <div className="flex-1 text-sm text-left whitespace-nowrap">
+              <p>Telefon: +47 123 456 789</p>
+            </div>
+            <div className="flex-1 text-sm text-right whitespace-nowrap">
+              <p>E-post: post@bilauksjon.no</p>
+            </div>
+          </div>
         </div>
       </div>
-    </nav>
+
+      {/* Main Navigation */}
+      <nav className="bg-white border-b">
+        <div className="max-w-7xl mx-auto px-6 md:px-8">
+          <div className="flex justify-between items-center h-20">
+            {/* Logo */}
+            <Link href="/" className="flex items-center">
+              <div className="relative w-[120px] h-[48px]">
+                <Image
+                  src="/images/logo.png"
+                  alt="Logo"
+                  fill
+                  style={{ objectFit: "contain" }}
+                  className="h-8 w-auto sm:h-10 md:h-12"
+                />
+              </div>
+            </Link>
+
+            {/* Mobile Navigation */}
+            <div className="lg:hidden flex items-center space-x-6">
+              <Link
+                href="/vare-biler"
+                className="text-gray-700 hover:text-primary font-medium transition-colors duration-200"
+              >
+                Våre Biler
+              </Link>
+              <button
+                className="p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              >
+                <FontAwesomeIcon
+                  icon={isMenuOpen ? faXmark : faBars}
+                  className="h-6 w-6 text-gray-600"
+                />
+              </button>
+            </div>
+
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex items-center space-x-8">
+              <Link
+                href="/vare-biler"
+                className="text-gray-700 hover:text-primary font-medium transition-colors duration-200"
+              >
+                Våre Biler
+              </Link>
+              <Link
+                href="/about"
+                className="text-gray-700 hover:text-primary font-medium transition-colors duration-200"
+              >
+                Om Oss
+              </Link>
+              <Link
+                href="/contact"
+                className="text-gray-700 hover:text-primary font-medium transition-colors duration-200"
+              >
+                Kontakt
+              </Link>
+
+              {/* Primary Actions */}
+              <div className="flex items-center space-x-4">
+                <Link
+                  href="/gi-bud"
+                  className="px-8 py-2.5 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-all duration-300 shadow-md hover:shadow-lg"
+                >
+                  Gi Bud
+                </Link>
+                <Link
+                  href="/selg-bil"
+                  className="px-8 py-2.5 bg-transparent text-gray-900 font-semibold rounded-lg hover:bg-gray-900 hover:text-white transition-all duration-300 border-2 border-gray-900"
+                >
+                  Selg Bil
+                </Link>
+              </div>
+            </div>
+
+            {/* Mobile Menu Button - Hidden on Mobile, Replaced by Above Button */}
+            <button
+              className="hidden"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            >
+              <FontAwesomeIcon
+                icon={isMenuOpen ? faXmark : faBars}
+                className="h-6 w-6 text-gray-600"
+              />
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        <div
+          className={`${
+            isMenuOpen ? "translate-x-0" : "translate-x-full"
+          } fixed top-0 right-0 h-full w-full max-w-sm bg-white shadow-2xl transition-transform duration-300 ease-in-out lg:hidden`}
+        >
+          <div className="flex flex-col h-full">
+            {/* Mobile Menu Header */}
+            <div className="flex items-center justify-between p-6 border-b">
+              <div className="relative w-[100px] h-[32px]">
+                <Image
+                  src="/images/logo.png"
+                  alt="Logo"
+                  fill
+                  style={{ objectFit: "contain" }}
+                  className="h-6 sm:h-8"
+                />
+              </div>
+              <button
+                onClick={() => setIsMenuOpen(false)}
+                className="p-2 hover:bg-gray-100 rounded-lg transition-colors duration-200"
+              >
+                <FontAwesomeIcon
+                  icon={faXmark}
+                  className="h-6 w-6 text-gray-600"
+                />
+              </button>
+            </div>
+
+            {/* Mobile Menu Content */}
+            <div className="flex-1 overflow-y-auto">
+              <div className="p-6 space-y-6">
+                {/* Navigation Links */}
+                <nav className="space-y-4">
+                  <Link
+                    href="/vare-biler"
+                    className="block py-2 text-gray-700 hover:text-primary transition-colors duration-200 font-medium"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Våre Biler
+                  </Link>
+                  <Link
+                    href="/about"
+                    className="block py-2 text-gray-700 hover:text-primary transition-colors duration-200 font-medium"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Om Oss
+                  </Link>
+                  <Link
+                    href="/contact"
+                    className="block py-2 text-gray-700 hover:text-primary transition-colors duration-200 font-medium"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Kontakt
+                  </Link>
+                </nav>
+
+                {/* Primary Actions */}
+                <div className="space-y-3">
+                  <Link
+                    href="/gi-bud"
+                    className="block w-full px-6 py-3 bg-primary text-white text-center font-semibold rounded-lg hover:bg-primary/90 transition-all duration-300"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Gi Bud
+                  </Link>
+                  <Link
+                    href="/selg-bil"
+                    className="block w-full px-6 py-3 bg-transparent text-gray-900 text-center font-semibold rounded-lg hover:bg-gray-900 hover:text-white transition-all duration-300 border-2 border-gray-900"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Selg Bil
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
   );
 };
 
